@@ -5,9 +5,13 @@ const connectDB = require("./db/config");
 
 const PORT = process.env.PORT || 5000;
 
+const users_routes = require("./routes/users");
+
 app.get("/", (req, res) => {
   res.send("Server is on...");
 });
+
+app.use("/api/users", users_routes);
 
 const start = async () => {
   try {
